@@ -7,9 +7,9 @@ struct node
 }*head=NULL;
 int main()
 {
-	int n=7;
-	cout<<"Enter the 5 node element:"<<endl;
-	int count=0;
+	int n;
+	cout<<"Enter the number of node:";
+	cin>>n;
 	node *temp=new node();
 	for(int i=0;i<n;i++)
 	{
@@ -22,12 +22,10 @@ int main()
 			newnode->data=ele;
 			newnode->next=NULL;
 			head=newnode;
-			count=1;
 		}
 		else{
 			newnode->data=ele;
 			newnode->next=NULL;
-			count++;
 			temp=head;
 			while(temp->next!=NULL)
 			{
@@ -36,22 +34,29 @@ int main()
 			temp->next=newnode;
 		}
 	}
-	node *ptr1,*ptr2;
-	ptr1=head;
-	while(ptr1!=NULL && ptr1->next!=NULL)
+	temp=head;
+	int target;
+	cout<<"Enter the target element to be deleted";
+	cin>>target;
+	while(temp!=NULL)
 	{
-		ptr2=ptr1;
-		while(ptr2->next!=NULL)
+		if(head->data==target)
 		{
-			if(ptr1->data==ptr2->next->data)
+			if(head->next==NULL)
 			{
-				ptr2->next=ptr2->next->next;
+				head=NULL;
 			}
 			else{
-				ptr2=ptr2->next;
+				head=head->next;
+				break;
 			}
 		}
-		ptr1=ptr1->next;
+		else if(temp->next->data==target)
+		{
+			temp->next=temp->next->next;
+			break;
+		}
+		temp=temp->next;	
 	}
 	temp=head;
 	while(temp!=NULL)

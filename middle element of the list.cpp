@@ -7,8 +7,9 @@ struct node
 }*head=NULL;
 int main()
 {
-	int n=7;
-	cout<<"Enter the 5 node element:"<<endl;
+	int n;
+	cout<<"Enter the number of node:";
+	cin>>n;
 	int count=0;
 	node *temp=new node();
 	for(int i=0;i<n;i++)
@@ -36,27 +37,15 @@ int main()
 			temp->next=newnode;
 		}
 	}
-	node *ptr1,*ptr2;
-	ptr1=head;
-	while(ptr1!=NULL && ptr1->next!=NULL)
-	{
-		ptr2=ptr1;
-		while(ptr2->next!=NULL)
-		{
-			if(ptr1->data==ptr2->next->data)
-			{
-				ptr2->next=ptr2->next->next;
-			}
-			else{
-				ptr2=ptr2->next;
-			}
-		}
-		ptr1=ptr1->next;
-	}
 	temp=head;
-	while(temp!=NULL)
+	int mid=count/2;
+	for(int i=0;i<n;i++)
 	{
-		cout<<temp->data;
+		if(i==mid)
+		{
+			cout<<temp->data;
+		}
 		temp=temp->next;
 	}
+	
 }

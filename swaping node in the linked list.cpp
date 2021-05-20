@@ -11,7 +11,7 @@ int main()
 	cout<<"Enter the 5 node element:"<<endl;
 	int count=0;
 	node *temp=new node();
-	for(int i=0;i<n;i++)
+	for(int i=0;i<10;i++)
 	{
 		node *newnode =new node();
 		int ele;
@@ -36,27 +36,30 @@ int main()
 			temp->next=newnode;
 		}
 	}
-	node *ptr1,*ptr2;
-	ptr1=head;
-	while(ptr1!=NULL && ptr1->next!=NULL)
-	{
-		ptr2=ptr1;
-		while(ptr2->next!=NULL)
-		{
-			if(ptr1->data==ptr2->next->data)
-			{
-				ptr2->next=ptr2->next->next;
-			}
-			else{
-				ptr2=ptr2->next;
-			}
-		}
-		ptr1=ptr1->next;
-	}
-	temp=head;
-	while(temp!=NULL)
-	{
-		cout<<temp->data;
-		temp=temp->next;
+	int k;
+	cin>>k;
+        node *prevx,*nextx;
+    	node *prevy,*nexty;
+        temp=head;
+        int e=count-(k+k);
+        int end=count-e;
+        temp=head;
+        for(int i=1;i<end;i++)
+        {
+            if(i==k-1)
+            {
+                prevx=temp->next;
+            }
+            temp=temp->next;
+        }
+        nextx=temp;
+        cout<<prevx->data<<" "<<nextx->data;
+        swap(prevx->data,nextx->data);
+
+    temp=head;
+    while(temp!=NULL)
+    {
+    	cout<<temp->data;
+    	temp=temp->next;
 	}
 }

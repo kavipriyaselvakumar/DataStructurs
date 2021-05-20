@@ -1,16 +1,22 @@
 #include<iostream>
 using namespace std;
+void delete(node **head,int pos)
+{
+	
+}
 struct node
 {
 	int data;
 	struct node *next;
-}*head=NULL;
+};
 int main()
 {
-	int n=7;
-	cout<<"Enter the 5 node element:"<<endl;
-	int count=0;
+	int n;
+	cout<<"Enter the number of node:";
+	cin>>n;
 	node *temp=new node();
+	node *head=new node();
+	head=NULL;
 	for(int i=0;i<n;i++)
 	{
 		node *newnode =new node();
@@ -22,12 +28,10 @@ int main()
 			newnode->data=ele;
 			newnode->next=NULL;
 			head=newnode;
-			count=1;
 		}
 		else{
 			newnode->data=ele;
 			newnode->next=NULL;
-			count++;
 			temp=head;
 			while(temp->next!=NULL)
 			{
@@ -36,27 +40,8 @@ int main()
 			temp->next=newnode;
 		}
 	}
-	node *ptr1,*ptr2;
-	ptr1=head;
-	while(ptr1!=NULL && ptr1->next!=NULL)
-	{
-		ptr2=ptr1;
-		while(ptr2->next!=NULL)
-		{
-			if(ptr1->data==ptr2->next->data)
-			{
-				ptr2->next=ptr2->next->next;
-			}
-			else{
-				ptr2=ptr2->next;
-			}
-		}
-		ptr1=ptr1->next;
-	}
-	temp=head;
-	while(temp!=NULL)
-	{
-		cout<<temp->data;
-		temp=temp->next;
-	}
+	int position;
+	cout<<"Enter the position to be deleted:";
+	cin>>position;
+	delete(&head);
 }

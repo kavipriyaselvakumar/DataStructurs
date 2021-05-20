@@ -7,10 +7,11 @@ struct node
 }*head=NULL;
 int main()
 {
-	int n=7;
-	cout<<"Enter the 5 node element:"<<endl;
-	int count=0;
+	int n;
+	cout<<"Enter the number of node:";
+	cin>>n;
 	node *temp=new node();
+	int count=0;
 	for(int i=0;i<n;i++)
 	{
 		node *newnode =new node();
@@ -36,27 +37,18 @@ int main()
 			temp->next=newnode;
 		}
 	}
-	node *ptr1,*ptr2;
-	ptr1=head;
-	while(ptr1!=NULL && ptr1->next!=NULL)
-	{
-		ptr2=ptr1;
-		while(ptr2->next!=NULL)
-		{
-			if(ptr1->data==ptr2->next->data)
-			{
-				ptr2->next=ptr2->next->next;
-			}
-			else{
-				ptr2=ptr2->next;
-			}
-		}
-		ptr1=ptr1->next;
-	}
 	temp=head;
-	while(temp!=NULL)
+	cout<<"Enter the number to be searched:";
+	int num;
+	cin>>num;
+	for(int i=0;i<count;i++)
 	{
-		cout<<temp->data;
+		if(temp->data==num)
+		{
+			cout<<"The element is found";
+			return 0;
+		}
 		temp=temp->next;
 	}
+	cout<<"The element is not found";
 }

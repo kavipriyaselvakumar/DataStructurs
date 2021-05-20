@@ -36,25 +36,22 @@ int main()
 			temp->next=newnode;
 		}
 	}
-	node *ptr1,*ptr2;
-	ptr1=head;
-	while(ptr1!=NULL && ptr1->next!=NULL)
+	node *current=new node();
+	current=head;
+	node *prev=new node();
+	prev=NULL;
+	node *nextone=new node();
+	nextone=NULL;
+	while(current)
 	{
-		ptr2=ptr1;
-		while(ptr2->next!=NULL)
-		{
-			if(ptr1->data==ptr2->next->data)
-			{
-				ptr2->next=ptr2->next->next;
-			}
-			else{
-				ptr2=ptr2->next;
-			}
-		}
-		ptr1=ptr1->next;
+		nextone=current->next;
+		current->next=prev;
+		prev=current;
+		current=nextone;
 	}
+	head=prev;
 	temp=head;
-	while(temp!=NULL)
+	while(temp)
 	{
 		cout<<temp->data;
 		temp=temp->next;

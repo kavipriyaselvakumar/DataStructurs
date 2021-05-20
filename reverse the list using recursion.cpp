@@ -5,6 +5,15 @@ struct node
 	int data;
 	struct node *next;
 }*head=NULL;
+void reverse(node *head)
+{
+	if(head==NULL)
+	{
+		return;
+	}
+	reverse(head->next);
+	cout<<head->data;
+}
 int main()
 {
 	int n=7;
@@ -36,27 +45,5 @@ int main()
 			temp->next=newnode;
 		}
 	}
-	node *ptr1,*ptr2;
-	ptr1=head;
-	while(ptr1!=NULL && ptr1->next!=NULL)
-	{
-		ptr2=ptr1;
-		while(ptr2->next!=NULL)
-		{
-			if(ptr1->data==ptr2->next->data)
-			{
-				ptr2->next=ptr2->next->next;
-			}
-			else{
-				ptr2=ptr2->next;
-			}
-		}
-		ptr1=ptr1->next;
-	}
-	temp=head;
-	while(temp!=NULL)
-	{
-		cout<<temp->data;
-		temp=temp->next;
-	}
+	reverse(head);
 }
